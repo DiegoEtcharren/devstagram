@@ -2,12 +2,15 @@
 @section('titulo')
     Crear un nuevo Post
 @endsection
+@push('styles')
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+@endpush
 
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form id="dropzone" action="/imagenes" class="dropzone !border-dashed !border-2 !border-gray-400 w-full h-96 rounded flex flex-col justify-center items-center">
-
+            <form id="dropzone" action="{{ route('imagenes.store')}}" enctype="multipart/form-data" method="POST" class="dropzone !border-dashed !border-2 !border-gray-400 w-full h-96 rounded flex flex-col justify-center items-center">
+                @csrf
             </form>
         </div>
         <div class="md:w-1/2 px-10  bg-white p-6 rounded-lg shadow-xl mt-10 md:mt-0">
