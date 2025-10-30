@@ -17,7 +17,7 @@
             <form action="{{ route('register')}}" method="POST">
                 @csrf
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
                         Titulo
                     </label>
                     <input
@@ -33,7 +33,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="descripcion" class="mb-2 block uppercase text-gray-500 font-bold">
                         Descripción
                     </label>
                     <textarea
