@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->text('imagen');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
