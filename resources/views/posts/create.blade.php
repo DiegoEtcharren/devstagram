@@ -5,6 +5,9 @@
 @push('styles')
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 @endpush
+@push('scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
+@endpush
 
 @section('contenido')
     <div class="md:flex md:items-center">

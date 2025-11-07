@@ -14,8 +14,12 @@ class PostController extends Controller
     }
 
     public function index(User $user) {
+
+        $posts = Post::where('user_id', $user->id)->get();
+
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 
@@ -31,7 +35,16 @@ class PostController extends Controller
             'imagen' => ['required']
         ]);
 
-        Post::create([
+        // Una forma de crear un POST: 
+        // Post::create([
+        //     'titulo' => $request->titulo, 
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id'  => auth()->user()->id
+        // ]);
+
+        // Otra forma, mas confore el protocolo de Laravel: 
+        $request->user()->posts()->create([
             'titulo' => $request->titulo, 
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
