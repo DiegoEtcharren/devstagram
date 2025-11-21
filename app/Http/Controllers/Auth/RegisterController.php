@@ -16,7 +16,6 @@ class RegisterController extends Controller
 
     public function store(Request $request) {
 
-
         // Modificar el request: 
         $request->request->add(['username' => Str::slug($request->username)]);   
 
