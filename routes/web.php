@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\PerfilController;
 
 Route::get('/', function () {
@@ -42,3 +43,6 @@ Route::delete('posts/{post}/likes', [LikeController::class, 'destroy'])->name('p
 
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 
+// Siguiendo usuarios: 
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::post('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
