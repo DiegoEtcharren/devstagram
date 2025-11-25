@@ -9,10 +9,15 @@ class FollowerController extends Controller
 {
     //
     public function store(Request $request, User $user) {
-        dd($user->username);
+        $user->followers()->attach( auth()->user()->id);
+
+        return back();
     }
 
     public function destroy(Request $request, User $user) {
-        dd('Desde Destroy');
+        $user->followers()->detach( auth()->user()->id);
+
+        return back();
     }
 }
+ 

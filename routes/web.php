@@ -9,12 +9,10 @@ use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerfilController;
 
-Route::get('/', function () {
-    return view('principal');
-});
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Auth:
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -45,4 +43,4 @@ Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.in
 
 // Siguiendo usuarios: 
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
-Route::post('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
